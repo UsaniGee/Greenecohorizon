@@ -39,8 +39,7 @@ const Home = () => {
         Our Mission
       </Text>
       <Text fontSize={"14px"} paddingX={{md: "50px", lg: "300px"}}>
-      To  help the most vulnerable communities adapt to and mitigate the gross impacts of climate change.
-      We want a sustainable environment that allows everyone to thrive. That is why we  hold environmental violators accountable and  introduce  projects that have positive impacts  on the environment in order to accelerate a just environment in Nigeria. 
+      To  help the most vulnerable communities adapt to and mitigate the gross impacts of climate change.     
       </Text>
       </Flex>
      </Box>
