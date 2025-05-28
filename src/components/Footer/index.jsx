@@ -8,8 +8,8 @@ const Footer = () => {
            {/* Bottom Section */}
            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center mb-4 md:mb-0">
-          <img width={"50px"} src="https://res.cloudinary.com/dnu4lxiie/image/upload/v1743737627/Green_ECO_2-removebg-preview_zy9ecy.png" alt="GreenEcoHorizon Logo" className="h-8 mr-2" /> 
-          <span className="text-xs">&copy; 2025 GreenEcoHorizon.</span>
+          <img width={"50px"} loading="lazy" src="https://res.cloudinary.com/dnu4lxiie/image/upload/v1743737627/Green_ECO_2-removebg-preview_zy9ecy.png" alt="GreenEcoHorizon Logo" className="h-8 mr-2" /> 
+          <span className="text-xs">&copy; 2025 Green Eco Horizon. All rights reserved. | <a href="#">Privacy Policy </a>| <a href="#">Terms of Use</a></span>
         </div>
 
         <div className="flex space-x-4">

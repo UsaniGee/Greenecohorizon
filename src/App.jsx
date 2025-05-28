@@ -4,6 +4,8 @@ import Root from './Layouts/Root'
 import Home from './Pages/Home'
 import ContactUs from './Pages/ContactUs'
 import { ChakraProvider, theme } from '@chakra-ui/react'
+import AboutUs from './Pages/AboutUS'
+import WhatWeDo from './Pages/WhatWeDo'
 
 const App = () => {
 
@@ -12,6 +14,8 @@ const App = () => {
       <Route path='/' element={ <Root />}>
         <Route index element={ <Home />} />
         <Route path='/contact-us' element={<ContactUs />} />
+         <Route path='/about-us' element={<AboutUs />} />
+         <Route path='/what-we-do' element={<WhatWeDo />} />
       </Route>
     )
   )
