@@ -64,14 +64,13 @@ const AboutUs = () => {
           <Box>
             <Heading size="lg" mb={4}>Our Mission</Heading>
             <Text fontSize="md">
-              To inspire and empower communities to take sustainable actions for a greener planet.
+              To promote resilience and environmental sustainability,  by developing innovative, technology-driven solutions and targeted community support.
             </Text>
           </Box>
           <Box>
             <Heading size="lg" mb={4}>Our Vision</Heading>
             <Text fontSize="md">
-              A thriving world where people and nature coexist in harmony, preserving biodiversity
-              and reducing carbon footprints.
+             To build 50,000 times more climate resilient Nigerian communities by 2040.
             </Text>
           </Box>
         </SimpleGrid>
@@ -84,7 +83,7 @@ const AboutUs = () => {
         <VStack spacing={6} maxW="4xl" mx="auto" textAlign="center">
           <Heading>Our Core Values</Heading>
           <Text fontSize="lg">
-            Sustainability • Community • Integrity • Innovation • Transparency • Collaboration
+            Sustainability • Integrity • Transparency • Collaboration • Empowerment 
           </Text>
         </VStack>
       </Box>
@@ -94,8 +93,7 @@ const AboutUs = () => {
         <VStack spacing={6} maxW="6xl" mx="auto" textAlign="center">
           <Heading>Our Impact</Heading>
           <Text fontSize="lg">
-            Since our founding, we've planted over 100,000 trees, educated 20,000 students,
-            and diverted 500 tons of waste from landfills. And we're just getting started.
+           From reducing carbon footprints to improving food security and promoting clean energy, our projects aim to create measurable, lasting change. We work to reduce emissions, improve air quality, and strengthen climate resilience in communities across Nigeria.
           </Text>
           <Image  loading="lazy" src="/images/impact.jpg" alt="Impact" borderRadius="xl" boxShadow="lg" />
         </VStack>

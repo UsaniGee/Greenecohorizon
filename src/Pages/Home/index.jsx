@@ -63,7 +63,7 @@ const Home = () => {
       gap={10} 
       >
         <Flex display={{base: "none", lg: "block"}} position={"relative"} >
-          <Image position={"absolute"} top={"20px"} right={"-100px"} h={"100%"} objectFit={"cover"} borderRadius={"20px"} src='https://res.cloudinary.com/dnu4lxiie/image/upload/v1747980684/sustainable-development-goals-still-life_rvucnh.jpg' alt='Our Mission'  loading="lazy" />
+          <Image position={"absolute"} top={"20px"} right={"-100px"} h={"100%"} objectFit={"cover"} borderRadius={"20px"} src='https://res.cloudinary.com/dnu4lxiie/image/upload/v1748876118/2150196642_mhh5dk.jpg' alt='Our Mission'  loading="lazy" />
         </Flex>
           <Flex justifyContent={"center"} flexDirection={"column"} textAlign={"center"} padding={{base: 5, md: 0}} gap={5} borderRadius={"20px"} backgroundColor={"rgba(71, 97, 58, 0.5)"} marginX={{base: "50px", md: "0"}} zIndex={10} boxShadow={"5px 5px 10px rgba(000, 000, 000, 0.2)"} _hover={{
            transform: "scale(1.1)",
@@ -133,14 +133,14 @@ const Home = () => {
 
 
       {/* Volunteer */}
-      <Grid gridTemplateColumns={{md:"1fr 1fr"}} paddingY={20} paddingX={10} textColor={"white"} fontFamily={"fantasy"} h={{lg: "90vh"}} backgroundColor={"green.800"} backgroundImage={"url(https://res.cloudinary.com/dnu4lxiie/image/upload/v1748099217/bg-letstalk_g9aabc.png)"} gap={10}>
+      <Grid gridTemplateColumns={{md:"1fr 1fr"}} paddingY={20} paddingX={{base: 5, lg: 10}} textColor={"white"} fontFamily={"fantasy"} h={{lg: "90vh"}} backgroundColor={"green.800"} backgroundImage={"url(https://res.cloudinary.com/dnu4lxiie/image/upload/v1748099217/bg-letstalk_g9aabc.png)"} gap={10}>
        <Grid gap={10}>
-        <Text fontSize={{base: "5em", lg: "7em"}} fontWeight={"thin"} lineHeight={"1"}>Get Involved.</Text>
+        <Text fontSize={{base: "4em", lg: "7em"}} fontWeight={"thin"} lineHeight={"1"}>Get Involved.</Text>
        <Box>
         <Flex fontSize={"2em"} backgroundColor={"rgba(000, 000, 000, 0.5)"} padding={"10px"} width={"50px"} justifyContent={"center"} borderRadius={"100%"}>
           <MdVolunteerActivism />
         </Flex>
-        <Grid gridTemplateColumns={{lg: " auto auto"}} alignItems={"center"} gap={5}>
+        <Grid gridTemplateColumns={{lg: "auto auto"}} alignItems={"center"} gap={5}>
         <Text>
           Opportunity for youth, professionals, and community members to contribute 
         </Text>

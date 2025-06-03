@@ -11,28 +11,27 @@ import 'swiper/css/effect-fade';
 
 const slides = [
   {
-    image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1743718714/15256_wkmoxw.jpg",
+    image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1748875386/351_tpdwiz.jpg",
     loading: "lazy",
     title: "Welcome to ",
     title_1: "Green Eco Horizon ",
     subtitle: "We are a nonprofit organization dedicated to building a sustainable environment in Nigeria. We work at the intersection of technology, innovation, and environmental resilience, addressing the unique climate challenges faced by vulnerable, frontline, and marginalized communities. Join us in creating a cleaner, healthier, and more sustainable world.",
-    // buttonText: "Explore", 
+    
   },
   {
-    image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1747616505/leaf-eco-word_srjvqt.jpg",
+    image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1748875529/2148576715_lzakkt.jpg",
      loading: "lazy",
     title: "Welcome to ",
     title_1: "Green Eco Horizon ",
     subtitle: "We are a nonprofit organization dedicated to building a sustainable environment in Nigeria. We work at the intersection of technology, innovation, and environmental resilience, addressing the unique climate challenges faced by vulnerable, frontline, and marginalized communities. Join us in creating a cleaner, healthier, and more sustainable world.",
-    // buttonText: "Explore", 
+
   },
   {
-    image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1747616520/digital-screen-with-environment-day_p8gtzs.jpg",
+    image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1748875722/2150196702_hz5u0i.jpg",
     loading: "lazy",
     title: "Welcome to ",
     title_1: "Green Eco Horizon ",
     subtitle: "We are a nonprofit organization dedicated to building a sustainable environment in Nigeria. We work at the intersection of technology, innovation, and environmental resilience, addressing the unique climate challenges faced by vulnerable, frontline, and marginalized communities. Join us in creating a cleaner, healthier, and more sustainable world.",
-    // buttonText: "Learn More",
   },
 ];
 
@@ -59,7 +58,7 @@ const HeroSection = () => {
   };
 
   return (
-    <Box position="relative" w="100%" h={{ base: "90vh", md: "100vh" }}>
+    <Box position="relative" w="100%" h={{ base: "85vh", md: "100vh" }}>
       <Swiper
         modules={[EffectFade, Navigation, Autoplay]}
         effect="fade" 
@@ -87,7 +86,7 @@ const HeroSection = () => {
                 w="100%"
                 zIndex={1}
                 pointerEvents="none"
-                bg="radial-gradient(circle at right center, rgba(34, 197, 94, 0.35) 0%, rgba(255, 197, 94, 0.7) 30%, transparent 70%)"
+                bg="radial-gradient(circle at left center, rgba(34, 197, 94, 0.35) 0%, rgba(255, 197, 94, 0.7) 30%, transparent 70%)"
 />
 
                <MotionBox mb={5}
