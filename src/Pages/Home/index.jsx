@@ -170,7 +170,7 @@ useEffect(() => {
 
 
       {/* Volunteer */}
-      <Grid gridTemplateColumns={{md:"1fr 1fr"}} paddingY={20} paddingX={{base: 5, lg: 10}} textColor={"white"} fontFamily={"fantasy"} h={{lg: "90vh"}} backgroundColor={"green.800"} backgroundImage={"url(https://res.cloudinary.com/dnu4lxiie/image/upload/v1748099217/bg-letstalk_g9aabc.png)"} gap={10}>
+      <Grid gridTemplateColumns={{md:"1fr 1fr"}} paddingY={20} paddingX={{base: 5, lg: 10}} textColor={"white"} h={{lg: "90vh"}} backgroundColor={"green.800"} backgroundImage={"url(https://res.cloudinary.com/dnu4lxiie/image/upload/v1748099217/bg-letstalk_g9aabc.png)"} gap={10}>
        <Grid gap={10}>
         <Text fontSize={{base: "4em", lg: "7em"}} fontWeight={"thin"} lineHeight={"1"}>Get Involved.</Text>
        <Box>
