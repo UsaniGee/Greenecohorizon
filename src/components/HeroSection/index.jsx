@@ -1,37 +1,34 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { chakra, Box, Heading, Text } from "@chakra-ui/react";
+import { chakra, Box, Heading, Text, VStack, Container } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import Typewriter from "typewriter-effect";
 import "swiper/css";
 import "swiper/css/navigation";
-import 'swiper/css/effect-fade';
-
+import "swiper/css/effect-fade";
 
 const slides = [
   {
     image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1748875386/351_tpdwiz.jpg",
-    loading: "lazy",
     title: "Welcome to ",
-    title_1: "Green Eco Horizon ",
-    subtitle: "We are a nonprofit organization dedicated to building a sustainable environment in Nigeria. We work at the intersection of technology, innovation, and environmental resilience, addressing the unique climate challenges faced by vulnerable, frontline, and marginalized communities. Join us in creating a cleaner, healthier, and more sustainable world.",
-    
+    title_1: "Green Eco Horizon",
+    subtitle:
+      "We're a nonprofit building a sustainable environment in Nigeria through technology, innovation, and environmental resilience. Join us in shaping a cleaner, healthier world.",
   },
   {
     image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1748875529/2148576715_lzakkt.jpg",
-     loading: "lazy",
     title: "Welcome to ",
-    title_1: "Green Eco Horizon ",
-    subtitle: "We are a nonprofit organization dedicated to building a sustainable environment in Nigeria. We work at the intersection of technology, innovation, and environmental resilience, addressing the unique climate challenges faced by vulnerable, frontline, and marginalized communities. Join us in creating a cleaner, healthier, and more sustainable world.",
-
+    title_1: "Green Eco Horizon",
+    subtitle:
+      "We're a nonprofit building a sustainable environment in Nigeria through technology, innovation, and environmental resilience. Join us in shaping a cleaner, healthier world.",
   },
   {
     image: "https://res.cloudinary.com/dnu4lxiie/image/upload/v1748875722/2150196702_hz5u0i.jpg",
-    loading: "lazy",
     title: "Welcome to ",
-    title_1: "Green Eco Horizon ",
-    subtitle: "We are a nonprofit organization dedicated to building a sustainable environment in Nigeria. We work at the intersection of technology, innovation, and environmental resilience, addressing the unique climate challenges faced by vulnerable, frontline, and marginalized communities. Join us in creating a cleaner, healthier, and more sustainable world.",
+    title_1: "Green Eco Horizon",
+    subtitle:
+      "We're a nonprofit building a sustainable environment in Nigeria through technology, innovation, and environmental resilience. Join us in shaping a cleaner, healthier world.",
   },
 ];
 
@@ -39,17 +36,8 @@ const HeroSection = () => {
   const MotionBox = chakra(motion.div);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.4, 
-      },
-    },
-  };
-
-  const childVariants = {
-    hidden: { opacity: 0, y: 50 },
+  const fadeVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -58,103 +46,80 @@ const HeroSection = () => {
   };
 
   return (
-    <Box position="relative" w="100%" h={{ base: "85vh", md: "100vh" }}>
+    <Box w="100%" h={{ base: "85vh", md: "100vh" }} position="relative">
       <Swiper
         modules={[EffectFade, Navigation, Autoplay]}
-        effect="fade" 
+        effect="fade"
         autoplay={{ delay: 5000 }}
         loop
-        onSlideChange={(fade) => setActiveIndex(fade.realIndex)}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         style={{ width: "100%", height: "100%" }}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <Box
               backgroundImage={`url(${slide.image})`}
-              loading="lazy"
+               loading="lazy"
               backgroundSize="cover"
               backgroundPosition="center"
               w="100%"
               h="100%"
               position="relative"
             >
+              {/* Overlay */}
               <Box
                 position="absolute"
                 top={0}
-                right={0}
-                h="100%"
+                left={0}
                 w="100%"
+                h="100%"
+                bgGradient="linear(to-b, rgba(0,0,0,0.6), rgba(0,0,0,0.3))"
                 zIndex={1}
-                pointerEvents="none"
-                bg="radial-gradient(circle at left center, rgba(34, 197, 94, 0.35) 0%, rgba(255, 197, 94, 0.7) 30%, transparent 70%)"
-/>
+              />
 
-               <MotionBox mb={5}
-                display="flex"
-                flexDir="column"
-                width={{base:"18.75em", lg: "fit-content"}}
+              {/* Content */}
+              <Container
+                maxW="7xl"
                 position="absolute"
-                height={{base: "fit-content", md: "fit-content"}}
-                top={{ base: "19%", md: "35%" }}
-                left={{ base: "5%", md: "10%" }}
-                 right={{ base: "5%", md: "" }}
-                zIndex={2}
-                textAlign={"justify"}
-                >
-                  <Heading fontSize={{ base: "2em", md: "3em" }} color="white" textShadow="2px 2px #000000" w={{lg: "auto"}} fontWeight={600} display={{base: "block", lg: "flex"}} gap={2} alignItems={"center"} p={3}>
-                   <Text>
-                   <Typewriter 
-                   options={{
-                    strings: [slide.title],
-                    autoStart: true,
-                    loop: false,
-                   }}
-                   />
-                  </Text>
-                   <Text  
-                   letterSpacing={"10px"}
-                   fontWeight={200}
-                   fontSize={"1.2em"}
-                   borderBottom="solid rgba(155, 255, 155, 1)" 
-                   width={"fit-content"}
-                   _hover={{ borderColor: "green" }}                 
-                  >
-                   {slide.title_1}
-                  </Text>
-
-
-                  </Heading>
-                </MotionBox>
-
-
-              <MotionBox
-                key={activeIndex === index ? `slide-${index}` : undefined}
-                display="flex"
-                flexDir="column"
-                width={"fit-content"}
-                position="absolute"
-                height={{base: "fit-content", md: "fit-content"}}
-                top={{ base: "75%", md: "75%" }}
-                left={{ base: "5%", md: "10%" }}
-                right={{ base: "5%", md: "" }}
+                top="50%"
                 transform="translateY(-50%)"
-                bg="rgba(14, 12, 12, 0.17)"
-                p={{md: 10, base: 4}}
-                borderRadius="md"
-                variants={containerVariants}
-                initial="hidden"
-                animate={activeIndex === index ? "visible" : "hidden"}
                 zIndex={2}
-                textAlign={"justify"}
+                px={{ base: 6, md: 10 }}
               >
-               
-                <MotionBox >
-                  <Text fontSize={{ base: "1em", md: "1em" }} mt={2} color="white" w={{lg: "600px", base: "auto"}} textShadow="1px 1px #000000">
-                    {slide.subtitle}
-                  </Text>
-                </MotionBox>
+                <VStack align="start" spacing={6} color="white">
+                  <MotionBox
+                    variants={fadeVariants}
+                    initial="hidden"
+                    animate={activeIndex === index ? "visible" : "hidden"}
+                  >
+                    <Heading fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold">
+                      <Text as="span">
+                        <Typewriter
+                          options={{ strings: [slide.title], autoStart: true, loop: false }}
+                        />
+                      </Text>{" "}
+                      <Text
+                        as="span"
+                        borderBottom="4px solid rgba(72, 187, 120, 1)"
+                        _hover={{ borderColor: "green.400" }}
+                      >
+                        {slide.title_1}
+                      </Text>
+                    </Heading>
+                  </MotionBox>
 
-              </MotionBox>
+                  <MotionBox
+                    variants={fadeVariants}
+                    initial="hidden"
+                    animate={activeIndex === index ? "visible" : "hidden"}
+                    maxW={{ base: "100%", md: "650px" }}
+                  >
+                    <Text fontSize={{ base: "md", md: "lg" }} lineHeight="tall">
+                      {slide.subtitle}
+                    </Text>
+                  </MotionBox>
+                </VStack>
+              </Container>
             </Box>
           </SwiperSlide>
         ))}

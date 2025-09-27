@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import React from 'react';
 import {
   Box, Image, 
   Container,
@@ -19,6 +20,8 @@ import {
   Icon,
   Badge,
   Divider,
+  useToast,
+  FormErrorMessage,
   useColorModeValue
 } from '@chakra-ui/react';
 import { 
@@ -32,14 +35,22 @@ import {
   Linkedin,
   Send
 } from 'lucide-react';
+import { useForm } from "react-hook-form";
+
+
+
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+ const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm();
+
+  const toast = useToast();
+
+
 
   const bgGradient = useColorModeValue(
     'linear(to-br, green.50, teal.50, emerald.50)',
@@ -50,19 +61,44 @@ const ContactUs = () => {
   const textColor = useColorModeValue('gray.700', 'gray.200');
   const headingColor = useColorModeValue('green.700', 'green.300');
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+ const onSubmit = async (values) => {
+  console.log("Form submitted with values:", values);
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
+  try {
+    const result = await emailjs.send(
+      "service_h18jfu8",   
+      "template_q8hgtuj",  
+      values,              
+      "mEDbgCbAkVTxe-DSM"  
+    );
+
+    console.log("EmailJS result:", result); 
+
+    toast({
+      title: "Message sent!",
+      status: "success",
+      duration: 4000,
+      isClosable: true,
+    });
+
+    reset();
+  } catch (error) {
+    console.error("EmailJS error:", error); 
+
+    if (error?.text) {
+      console.error("EmailJS error text:", error.text);
+    }
+
+    toast({
+      title: "Failed to send message.",
+      description: "Please try again later.",
+      status: "error",
+      duration: 4000,
+      isClosable: true,
+    });
+  }
+};
+
 
  const socialIcons = [
      { Icon: Twitter, color: 'darkblue', link: "#" },
@@ -140,7 +176,7 @@ const ContactUs = () => {
 
         <Grid templateColumns={{ base: '1fr', lg: '1fr 1fr' }} gap={12}>
           {/* Contact Form */}
-          <GridItem>
+          <GridItem  as="form" onSubmit={handleSubmit(onSubmit)}>
             <Card shadow="2xl" borderRadius="3xl" overflow="hidden">
               <Box h={2} bgGradient="linear(to-r, green.400, teal.400, green.500)" />
               <CardBody p={8}>
@@ -150,20 +186,19 @@ const ContactUs = () => {
                 
                 <VStack spacing={6}>
                   <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={4} w="full">
-                    <FormControl isRequired>
+                    <FormControl isInvalid={errors.name}>
                       <FormLabel color={textColor} fontWeight="medium">
                         Full Name
                       </FormLabel>
                       <Input
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Full Name"
+                      {...register("name", { required: "Please enter name" })}   
+                      placeholder="Please enter name"                   
                         borderColor="green.200"
                         focusBorderColor="green.400"
                         _hover={{ borderColor: 'green.300' }}
                         size="lg"
                       />
+                      <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
                     </FormControl>
                     
                     <FormControl isRequired>
@@ -172,15 +207,15 @@ const ContactUs = () => {
                       </FormLabel>
                       <Input
                         type="email"
+                        {...register("email", { required: "Please enter email" })}
                         name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
                         placeholder="john@example.com"
                         borderColor="green.200"
                         focusBorderColor="green.400"
                         _hover={{ borderColor: 'green.300' }}
                         size="lg"
                       />
+                    <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
                     </FormControl>
                   </Grid>
                   
@@ -190,14 +225,14 @@ const ContactUs = () => {
                     </FormLabel>
                     <Input
                       name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
+                      {...register("subject", { required: "Please enter subject" })}
                       placeholder="Subject"
                       borderColor="green.200"
                       focusBorderColor="green.400"
                       _hover={{ borderColor: 'green.300' }}
                       size="lg"
                     />
+                     <FormErrorMessage>{errors.subject?.message}</FormErrorMessage>
                   </FormControl>
                   
                   <FormControl isRequired>
@@ -206,8 +241,7 @@ const ContactUs = () => {
                     </FormLabel>
                     <Textarea
                       name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
+                       {...register("message", { required: "Please enter message" })}
                       placeholder="Message"
                       rows={6}
                       borderColor="green.200"
@@ -215,10 +249,10 @@ const ContactUs = () => {
                       _hover={{ borderColor: 'green.300' }}
                       resize="none"
                     />
+                     <FormErrorMessage>{errors.message?.message}</FormErrorMessage>
                   </FormControl>
                   
-                  <Button
-                    onClick={handleSubmit}
+                  <Button                  
                     w="full"
                     size="lg"
                     bgGradient="linear(to-r, green.500, teal.500)"
@@ -231,6 +265,8 @@ const ContactUs = () => {
                     }}
                     transition="all 0.3s"
                     leftIcon={<Icon as={Send} />}
+                     isLoading={isSubmitting}
+                      type="submit"
                   >
                     Send Message
                   </Button>

@@ -1,10 +1,19 @@
-import { Box, Flex, Grid, Heading, Image, Link, SimpleGrid, Text, useColorModeValue, VStack } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Flex, Grid, Heading, Image, Link, SimpleGrid, Text, useColorModeValue, VStack,
+   Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+ } from '@chakra-ui/react'
+import React, { useEffect } from 'react'
 import HeroSection from '../../components/HeroSection'
 import ButtonStyled from '../../components/Button'
 import { MdVolunteerActivism } from "react-icons/md";
 import { FaDonate } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
+
 
 const Home = () => {
 
@@ -18,9 +27,37 @@ const Home = () => {
   ];
 
 
+const { isOpen, onOpen, onClose } = useDisclosure();
+
+useEffect(() => {
+  onOpen(); 
+}, []);
+
 
   return (
     <Box>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent maxW="lg" bg="white" borderRadius="lg">
+          <ModalHeader>🌱 Welcome to Green Eco Horizon</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody p={0}>
+            <Image
+              src="https://res.cloudinary.com/dnu4lxiie/image/upload/v1758943535/Red_and_Black_Modern_Sponsorship_Proposal_ckoucq.svg"
+              alt="Welcome"
+              objectFit="cover"
+              width="100%"
+              borderBottomRadius="lg"
+            />
+            <Box p={4}>
+              <Text fontSize="md">
+                We’re glad you’re here! Explore how we’re driving change through sustainability and innovation.
+              </Text>
+            </Box>
+          </ModalBody>
+        </ModalContent>
+</Modal>
+
       {/* Header */}
       <HeroSection />
   

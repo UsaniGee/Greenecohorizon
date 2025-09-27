@@ -62,13 +62,13 @@ const AboutUs = () => {
       <Box py={16} px={6}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} maxW="6xl" mx="auto">
           <Box>
-            <Heading size="lg" mb={4}>Our Mission</Heading>
+            <Heading size="lg" mb={4} textAlign={'center'}>Our Mission</Heading>
             <Text fontSize="md">
               To promote resilience and environmental sustainability,  by developing innovative, technology-driven solutions and targeted community support.
             </Text>
           </Box>
           <Box>
-            <Heading size="lg" mb={4}>Our Vision</Heading>
+            <Heading size="lg" mb={4} textAlign={'center'}>Our Vision</Heading>
             <Text fontSize="md">
              To build 50,000 times more climate resilient Nigerian communities by 2040.
             </Text>
@@ -95,7 +95,7 @@ const AboutUs = () => {
           <Text fontSize="lg">
            From reducing carbon footprints to improving food security and promoting clean energy, our projects aim to create measurable, lasting change. We work to reduce emissions, improve air quality, and strengthen climate resilience in communities across Nigeria.
           </Text>
-          <Image  loading="lazy" src="/images/impact.jpg" alt="Impact" borderRadius="xl" boxShadow="lg" />
+          <Image  loading="lazy" src="https://res.cloudinary.com/dnu4lxiie/image/upload/v1758944087/man-holding-paper-with-green-energy_endboi.jpg" alt="Impact" borderRadius="xl" boxShadow="lg" />
         </VStack>
       </Box>
     </Box>
